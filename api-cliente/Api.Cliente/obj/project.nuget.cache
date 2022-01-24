@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "WZ7CQx+J8+MlHWef+ODnC5U45XIMgQ5QWTVA4CNe9jV99JQiyJl0qsQYuu1LAUiG3M7iX10MigqgDKvcKXuCUg==",
+  "success": true,
+  "projectFilePath": "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente\\Api.Cliente.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\paulo\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.21\\microsoft.netcore.app.host.win-x64.3.1.21.nupkg.sha512"
+  ],
+  "logs": []
+}

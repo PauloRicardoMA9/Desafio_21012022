@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  sql-server-db:
+    container_name: SqlServer
+    image: mcr.microsoft.com/mssql/server:2019-CU14-ubuntu-20.04
+    ports:
+      - "1433:1433"
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "!senha_super_secreta"
+    networks: 
+      - backend
+    restart: always
+networks:
+  backend: 
