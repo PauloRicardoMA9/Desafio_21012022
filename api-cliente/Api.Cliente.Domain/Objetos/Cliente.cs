@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using DocumentValidator;
+using System.Collections.Generic;
 
 namespace Api.Cliente.Domain.Objetos
 {
@@ -15,6 +16,8 @@ namespace Api.Cliente.Domain.Objetos
         public Cliente() { }
         public Cliente(string nome, string cpf, Sexo sexo, string email)
         {
+            ValidarCliente();
+
             Nome = nome;
             Cpf = cpf;
             Sexo = sexo;
@@ -23,19 +26,47 @@ namespace Api.Cliente.Domain.Objetos
 
         public void DefinirNome(string nome)
         {
+            ValidarNome();
             Nome = nome;
         }
         public void DefinirCpf(string cpf)
         {
+            ValidarCpf();
             Cpf = cpf;
         }
         public void DefinirSexo(Sexo sexo)
         {
+            ValidarSexo();
             Sexo = sexo;
         }
         public void DefinirEmail(string email)
         {
+            ValidarEmail();
             Email = email;
+        }
+
+        public void ValidarNome()
+        {
+            Validacoes.ValidarSeNaoVazio(Nome, "O campo Nome não pode estar vazio.");
+        }
+        public void ValidarCpf()
+        {
+            Validacoes.ValidarSeIgual(true, CpfValidation.Validate(Cpf), "CPF inválido");
+        }
+        public void ValidarSexo()
+        {
+            Validacoes.ValidarSeNaoNulo(Sexo, "O campo Sexo não pode ser nulo.");
+        }
+        public void ValidarEmail()
+        {
+            Validacoes.ValidarSeNaoVazio(Email, "O campo Email não pode estar vazio.");
+        }
+        public void ValidarCliente()
+        {
+            ValidarNome();
+            ValidarCpf();
+            ValidarSexo();
+            ValidarEmail();
         }
     }
 }
