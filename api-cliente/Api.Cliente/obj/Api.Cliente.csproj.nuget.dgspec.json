@@ -4,14 +4,98 @@
     "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente\\Api.Cliente.csproj": {}
   },
   "projects": {
-    "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente\\Api.Cliente.csproj": {
+    "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente.Data\\Api.Cliente.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente\\Api.Cliente.csproj",
-        "projectName": "Api.Cliente",
-        "projectPath": "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente\\Api.Cliente.csproj",
+        "projectUniqueName": "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente.Data\\Api.Cliente.Data.csproj",
+        "projectName": "Api.Cliente.Data",
+        "projectPath": "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente.Data\\Api.Cliente.Data.csproj",
         "packagesPath": "C:\\Users\\paulo\\.nuget\\packages\\",
-        "outputPath": "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente\\obj\\",
+        "outputPath": "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\paulo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente.Domain\\Api.Cliente.Domain.csproj": {
+                "projectPath": "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente.Domain\\Api.Cliente.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.22, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.22, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.22, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.22, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente.Domain\\Api.Cliente.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente.Domain\\Api.Cliente.Domain.csproj",
+        "projectName": "Api.Cliente.Domain",
+        "projectPath": "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente.Domain\\Api.Cliente.Domain.csproj",
+        "packagesPath": "C:\\Users\\paulo\\.nuget\\packages\\",
+        "outputPath": "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -43,6 +127,82 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "DocsBRValidator": {
+              "target": "Package",
+              "version": "[1.2.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente\\Api.Cliente.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente\\Api.Cliente.csproj",
+        "projectName": "Api.Cliente",
+        "projectPath": "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente\\Api.Cliente.csproj",
+        "packagesPath": "C:\\Users\\paulo\\.nuget\\packages\\",
+        "outputPath": "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\paulo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente.Data\\Api.Cliente.Data.csproj": {
+                "projectPath": "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente.Data\\Api.Cliente.Data.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.22, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

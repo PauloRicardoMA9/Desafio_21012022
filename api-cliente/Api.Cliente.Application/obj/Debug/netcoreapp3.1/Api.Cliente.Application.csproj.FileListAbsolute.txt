@@ -1,0 +1,10 @@
+C:\Dev\Desafio_21012022\api-cliente\Api.Cliente.Application\bin\Debug\netcoreapp3.1\Api.Cliente.Application.deps.json
+C:\Dev\Desafio_21012022\api-cliente\Api.Cliente.Application\bin\Debug\netcoreapp3.1\Api.Cliente.Application.dll
+C:\Dev\Desafio_21012022\api-cliente\Api.Cliente.Application\bin\Debug\netcoreapp3.1\Api.Cliente.Application.pdb
+C:\Dev\Desafio_21012022\api-cliente\Api.Cliente.Application\obj\Debug\netcoreapp3.1\Api.Cliente.Application.csproj.AssemblyReference.cache
+C:\Dev\Desafio_21012022\api-cliente\Api.Cliente.Application\obj\Debug\netcoreapp3.1\Api.Cliente.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dev\Desafio_21012022\api-cliente\Api.Cliente.Application\obj\Debug\netcoreapp3.1\Api.Cliente.Application.AssemblyInfoInputs.cache
+C:\Dev\Desafio_21012022\api-cliente\Api.Cliente.Application\obj\Debug\netcoreapp3.1\Api.Cliente.Application.AssemblyInfo.cs
+C:\Dev\Desafio_21012022\api-cliente\Api.Cliente.Application\obj\Debug\netcoreapp3.1\Api.Cliente.Application.csproj.CoreCompileInputs.cache
+C:\Dev\Desafio_21012022\api-cliente\Api.Cliente.Application\obj\Debug\netcoreapp3.1\Api.Cliente.Application.dll
+C:\Dev\Desafio_21012022\api-cliente\Api.Cliente.Application\obj\Debug\netcoreapp3.1\Api.Cliente.Application.pdb
