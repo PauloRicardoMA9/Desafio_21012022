@@ -1,11 +1,57 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {}
+    ".NETCoreApp,Version=v3.1": {
+      "DocsBRValidator/1.2.1": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.1/DocumentValidator.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/DocumentValidator.dll": {}
+        }
+      },
+      "Api.Cliente.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "DocsBRValidator": "1.2.1"
+        },
+        "compile": {
+          "bin/placeholder/Api.Cliente.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Api.Cliente.Domain.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "DocsBRValidator/1.2.1": {
+      "sha512": "UuHe9skoD3rt/EhTVIsOm/Ot4S7Qs4W+gVibxRxBADHGFQBWUMKhh8ueRof2oIRGQ9CSjNvhg2/yWzDOzYAIcw==",
+      "type": "package",
+      "path": "docsbrvalidator/1.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "docicon.png",
+        "docsbrvalidator.1.2.1.nupkg.sha512",
+        "docsbrvalidator.nuspec",
+        "lib/netcoreapp3.1/DocumentValidator.dll",
+        "lib/netcoreapp3.1/DocumentValidator.xml",
+        "readme.txt"
+      ]
+    },
+    "Api.Cliente.Domain/1.0.0": {
+      "type": "project",
+      "path": "../Api.Cliente.Domain/Api.Cliente.Domain.csproj",
+      "msbuildProject": "../Api.Cliente.Domain/Api.Cliente.Domain.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": []
+    ".NETCoreApp,Version=v3.1": [
+      "Api.Cliente.Domain >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\paulo\\.nuget\\packages\\": {},
@@ -38,7 +84,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente.Domain\\Api.Cliente.Domain.csproj": {
+              "projectPath": "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente.Domain\\Api.Cliente.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
