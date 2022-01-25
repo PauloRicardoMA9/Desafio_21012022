@@ -20,6 +20,8 @@ namespace Api.Cliente.Business.Services
                 return false;
             }
 
+            if(_clienteRepository.Buscar)
+
             return true;
         }
 
