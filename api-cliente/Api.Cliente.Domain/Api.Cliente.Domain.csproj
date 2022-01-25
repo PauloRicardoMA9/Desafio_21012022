@@ -6,10 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="DocsBRValidator" Version="1.2.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Api.Cliente.Business\Api.Cliente.Business.csproj" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="10.3.6" />
   </ItemGroup>
 
 </Project>

@@ -65,3 +65,6 @@ C:\Dev\Desafio_21012022\api-cliente\Api.Cliente\obj\Debug\netcoreapp3.1\Api.Clie
 C:\Dev\Desafio_21012022\api-cliente\Api.Cliente\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
 C:\Dev\Desafio_21012022\api-cliente\Api.Cliente\bin\Debug\netcoreapp3.1\Api.Cliente.Business.dll
 C:\Dev\Desafio_21012022\api-cliente\Api.Cliente\bin\Debug\netcoreapp3.1\Api.Cliente.Business.pdb
+C:\Dev\Desafio_21012022\api-cliente\Api.Cliente\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Dev\Desafio_21012022\api-cliente\Api.Cliente\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Dev\Desafio_21012022\api-cliente\Api.Cliente\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll

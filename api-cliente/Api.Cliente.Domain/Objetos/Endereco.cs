@@ -1,106 +1,69 @@
-﻿using System;
+﻿using Api.Cliente.Domain.Extensions;
+using FluentValidation;
+using System;
 
 namespace Api.Cliente.Domain.Objetos
 {
     public class Endereco : Entidade
     {
         public Guid IdCliente { get; private set; }
-        public string Logradouro { get; private set; }
-        public int Numero { get; private set; }
-        public string Bairro { get; private set; }
-        public string Cidade { get; private set; }
-        public string Estado { get; private set; }
-        public bool Principal { get; private set; }
+        public string Logradouro { get; set; }
+        public int Numero { get; set; }
+        public string Bairro { get; set; }
+        public string Cidade { get; set; }
+        public string Estado { get; set; }
+        public bool Principal { get; set; }
 
         public Cliente Cliente { get; set; }
+    }
 
-        public Endereco() { }
-        public Endereco(Guid idCliente, string logradouro, int numero, string bairro, string cidade, string estado, bool principal)
+    public class EnderecoValidation : AbstractValidator<Endereco>
+    {
+        public EnderecoValidation()
         {
-            ValidarEndereco();
+            RuleFor(endereco => endereco.Logradouro)
+                .NotEmpty()
+                    .WithMessage("O {PropertyName} precisa ser fornecido.")
+                .Length(2, 200)
+                    .WithMessage("O {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres");
 
-            IdCliente = idCliente;
-            Logradouro = logradouro;
-            Numero = numero;
-            Bairro = bairro;
-            Cidade = cidade;
-            Estado = estado;
-            Principal = principal;
-        }
+            RuleFor(endereco => endereco.Numero)
+                .NotEmpty()
+                    .WithMessage("O {PropertyName} precisa ser fornecido.")
+                .NotNull()
+                    .WithMessage("O {PropertyName} precisa ser fornecido.");
 
-        public void DefinirIdCliente(Guid idCliente)
-        {
-            ValidarIdCliente();
-            IdCliente = idCliente;
-        }
-        public void DefinirLogradouro(string logradouro)
-        {
-            ValidarLogradouro();
-            Logradouro = logradouro;
-        }
-        public void DefinirNumero(int numero)
-        {
-            ValidarNumero();
-            Numero = numero;
-        }
-        public void DefinirBairro(string bairro)
-        {
-            ValidarBairro();
-            Bairro = bairro;
-        }
-        public void DefinirCidade(string cidade)
-        {
-            ValidarCidade();
-            Cidade = cidade;
-        }
-        public void DefinirEstado(string estado)
-        {
-            ValidarEstado();
-            Estado = estado;
-        }
-        public void DefinirPrincipal(bool principal)
-        {
-            ValidarPrincipal();
-            Principal = principal;
-        }
+            RuleFor(endereco => new IntLenghtAttribute(1, 50).IsValid(endereco.Numero))
+                .Equal(true)
+                    .WithMessage("O Numero precisa ter entre 1 e 50 caracteres.");
 
-        public void ValidarIdCliente()
-        {
-            Validacoes.ValidarSeNaoNulo(IdCliente, "O IdCliente não pode ser nulo.");
-        }
-        public void ValidarLogradouro()
-        {
-            Validacoes.ValidarSeNaoVazio(Logradouro, "O campo Logradouro não pode ser nulo.");
-        }
-        public void ValidarNumero()
-        {
-            Validacoes.ValidarSeMaiorIgualQue(Numero, 0, "O campo Número deve ser maior ou igual a 0.");
-        }
-        public void ValidarBairro()
-        {
-            Validacoes.ValidarSeNaoVazio(Bairro, "O campo Bairro não pode ser nulo.");
-        }
-        public void ValidarCidade()
-        {
-            Validacoes.ValidarSeNaoVazio(Cidade, "O campo Cidade não pode ser nulo.");
-        }
-        public void ValidarEstado()
-        {
-            Validacoes.ValidarSeNaoVazio(Estado, "O campo Estado não pode ser nulo.");
-        }
-        public void ValidarPrincipal()
-        {
-            Validacoes.ValidarSeNaoNulo(Principal, "O campo Principal não pode ser nulo.");
-        }
-        public void ValidarEndereco()
-        {
-            ValidarIdCliente();
-            ValidarLogradouro();
-            ValidarNumero();
-            ValidarBairro();
-            ValidarCidade();
-            ValidarEstado();
-            ValidarPrincipal();
+            RuleFor(endereco => endereco.Bairro)
+                .NotEmpty()
+                    .WithMessage("O {PropertyName} precisa ser fornecido.")
+                .NotNull()
+                    .WithMessage("O {PropertyName} precisa ser fornecido.")
+                .Length(2, 100)
+                    .WithMessage("O {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
+
+            RuleFor(endereco => endereco.Cidade)
+                .NotEmpty()
+                    .WithMessage("A {PropertyName} precisa ser fornecida.")
+                .NotNull()
+                    .WithMessage("A {PropertyName} precisa ser fornecida.")
+                .Length(2, 100)
+                    .WithMessage("A {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
+
+            RuleFor(endereco => endereco.Estado)
+                .NotNull()
+                    .WithMessage("O {PropertyName} precisa ser fornecido.")
+                .NotEmpty()
+                    .WithMessage("O {PropertyName} precisa ser fornecido.")
+                .Length(2, 50)
+                    .WithMessage("O {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
+
+            RuleFor(endereco => endereco.Principal)
+                .NotNull()
+                    .WithMessage("O campo {PropertyName} precisa ser fornecido.");
         }
     }
 }

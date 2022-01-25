@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "MQqK8wzzIAZdMbyx33NIRR6x9jknFaLs7EGXc6hnl+wbld1/h46WrvMVgFAmdSD/5ga2NIdxtHp0723xlnf5Sg==",
+  "dgSpecHash": "62CbMEsxl7DGGeitWUuLjINLEgZMkimR61Q4GlcSbxaaGV+i0nx+rbTgtSJDTzIrHrrAlUHY+SckjbZY+PF4Wg==",
   "success": true,
   "projectFilePath": "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente.Business\\Api.Cliente.Business.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\paulo\\.nuget\\packages\\docsbrvalidator\\1.2.1\\docsbrvalidator.1.2.1.nupkg.sha512",
+    "C:\\Users\\paulo\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512",
+    "C:\\Users\\paulo\\.nuget\\packages\\fluentvalidation.aspnetcore\\10.3.6\\fluentvalidation.aspnetcore.10.3.6.nupkg.sha512",
+    "C:\\Users\\paulo\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\10.3.6\\fluentvalidation.dependencyinjectionextensions.10.3.6.nupkg.sha512",
+    "C:\\Users\\paulo\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\2.1.0\\microsoft.extensions.dependencyinjection.abstractions.2.1.0.nupkg.sha512"
+  ],
   "logs": []
 }

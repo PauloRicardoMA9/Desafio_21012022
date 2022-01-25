@@ -8,7 +8,6 @@
     ".NETCoreApp,Version=v3.1": {
       "Api.Cliente.Domain/1.0.0": {
         "dependencies": {
-          "Api.Cliente.Business": "1.0.0",
           "DocsBRValidator": "1.2.1"
         },
         "runtime": {
@@ -21,11 +20,6 @@
             "assemblyVersion": "1.2.1.0",
             "fileVersion": "1.2.1.0"
           }
-        }
-      },
-      "Api.Cliente.Business/1.0.0": {
-        "runtime": {
-          "Api.Cliente.Business.dll": {}
         }
       }
     }
@@ -42,11 +36,6 @@
       "sha512": "sha512-UuHe9skoD3rt/EhTVIsOm/Ot4S7Qs4W+gVibxRxBADHGFQBWUMKhh8ueRof2oIRGQ9CSjNvhg2/yWzDOzYAIcw==",
       "path": "docsbrvalidator/1.2.1",
       "hashPath": "docsbrvalidator.1.2.1.nupkg.sha512"
-    },
-    "Api.Cliente.Business/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
     }
   }
 }

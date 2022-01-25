@@ -17,7 +17,7 @@ namespace Api.Cliente.Domain.Extensions
 
         public override bool IsValid(object valor)
         {
-            if (valor.ToString().Length < _valorMinimo || valor.ToString().Length > _valorMinimo)
+            if (valor.ToString().Length < _valorMinimo || valor.ToString().Length > _valorMaximo)
             {
                 return false;
             }

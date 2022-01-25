@@ -31,7 +31,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente.Domain\\Api.Cliente.Domain.csproj": {
+                "projectPath": "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente.Domain\\Api.Cliente.Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -173,11 +177,7 @@
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
-            "projectReferences": {
-              "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente.Business\\Api.Cliente.Business.csproj": {
-                "projectPath": "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente.Business\\Api.Cliente.Business.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {
@@ -193,6 +193,10 @@
             "DocsBRValidator": {
               "target": "Package",
               "version": "[1.2.1, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[10.3.6, )"
             }
           },
           "imports": [
@@ -242,6 +246,9 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
+              "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente.Business\\Api.Cliente.Business.csproj": {
+                "projectPath": "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente.Business\\Api.Cliente.Business.csproj"
+              },
               "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente.Data\\Api.Cliente.Data.csproj": {
                 "projectPath": "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente.Data\\Api.Cliente.Data.csproj"
               }

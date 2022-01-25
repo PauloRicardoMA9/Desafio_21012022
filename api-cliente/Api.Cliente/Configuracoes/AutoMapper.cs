@@ -10,7 +10,7 @@ namespace Api.Cliente.Configuracoes
         {
             CreateMap<Domain.Objetos.Cliente, ClienteViewModel>().ReverseMap();
             CreateMap<Endereco, EnderecoViewModel>().ReverseMap();
-            CreateMap<Telefone, TelefoneViewModel>();
+            CreateMap<Telefone, TelefoneViewModel>().ReverseMap();
         }
     }
 }

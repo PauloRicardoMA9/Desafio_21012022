@@ -1,72 +1,47 @@
 ﻿using DocumentValidator;
+using FluentValidation;
 using System.Collections.Generic;
 
 namespace Api.Cliente.Domain.Objetos
 {
     public class Cliente : Entidade
     {
-        public string Nome { get; private set; }
-        public string Cpf { get; private set; }
-        public Sexo Sexo { get; private set; }
-        public string Email { get; private set; }
+        public string Nome { get; set; }
+        public string Cpf { get; set; }
+        public Sexo Sexo { get; set; }
+        public string Email { get; set; }
 
         public IEnumerable<Telefone> Telefones { get; set; }
         public IEnumerable<Endereco> Enderecos { get; set;}
+    }
 
-        public Cliente() { }
-        public Cliente(string nome, string cpf, Sexo sexo, string email)
+    public class ClienteValidation : AbstractValidator<Cliente>
+    {
+        public ClienteValidation()
         {
-            ValidarCliente();
+            RuleFor(cliente => cliente.Nome)
+                .NotNull()
+                    .WithMessage("O {PropertyName} precisa ser fornecido.")
+                .NotEmpty()
+                    .WithMessage("O {PropertyName} precisa ser fornecido.")
+                .Length(2, 60)
+                    .WithMessage("O {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
 
-            Nome = nome;
-            Cpf = cpf;
-            Sexo = sexo;
-            Email = email;
-        }
+            RuleFor(cliente => CpfValidation.Validate(cliente.Cpf))
+                .Equal(true)
+                    .WithMessage("O {PropertyName} fornecido não é válido.");
 
-        public void DefinirNome(string nome)
-        {
-            ValidarNome();
-            Nome = nome;
-        }
-        public void DefinirCpf(string cpf)
-        {
-            ValidarCpf();
-            Cpf = cpf;
-        }
-        public void DefinirSexo(Sexo sexo)
-        {
-            ValidarSexo();
-            Sexo = sexo;
-        }
-        public void DefinirEmail(string email)
-        {
-            ValidarEmail();
-            Email = email;
-        }
+            RuleFor(cliente => cliente.Sexo)
+                .NotNull()
+                    .WithMessage("O {PropertyName} precisa ser fornecido.")
+                .NotEmpty()
+                    .WithMessage("O {PropertyName} precisa ser fornecido.");
 
-        public void ValidarNome()
-        {
-            Validacoes.ValidarSeNaoVazio(Nome, "O campo Nome não pode estar vazio.");
-        }
-        public void ValidarCpf()
-        {
-            Validacoes.ValidarSeIgual(true, CpfValidation.Validate(Cpf), "CPF inválido");
-        }
-        public void ValidarSexo()
-        {
-            Validacoes.ValidarSeNaoNulo(Sexo, "O campo Sexo não pode ser nulo.");
-        }
-        public void ValidarEmail()
-        {
-            Validacoes.ValidarSeNaoVazio(Email, "O campo Email não pode estar vazio.");
-        }
-        public void ValidarCliente()
-        {
-            ValidarNome();
-            ValidarCpf();
-            ValidarSexo();
-            ValidarEmail();
+            RuleFor(cliente => cliente.Email)
+                .EmailAddress()
+                    .WithMessage("O {PropertyName} fornecido não é válido.")
+                .Length(2, 100)
+                    .WithMessage("O {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
         }
     }
 }

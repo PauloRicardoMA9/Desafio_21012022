@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "L1vSXgwsVn3ZXWm39EBICzeeipfsGcS6x2cxoZeijyR8skAmvTwgosUStyvuS8ivn9veG6MWWKtYraplR/qqxw==",
+  "dgSpecHash": "Cy5jzt5VigY6/dZU9d7kBYo7pCV3PDExmfTmjZAHPLU9P5p7MeEJ4ATqCMGzBiLXyqyN0q15RHGaw8+ZaQ09nw==",
   "success": true,
   "projectFilePath": "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente.Data\\Api.Cliente.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\paulo\\.nuget\\packages\\docsbrvalidator\\1.2.1\\docsbrvalidator.1.2.1.nupkg.sha512",
+    "C:\\Users\\paulo\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512",
+    "C:\\Users\\paulo\\.nuget\\packages\\fluentvalidation.aspnetcore\\10.3.6\\fluentvalidation.aspnetcore.10.3.6.nupkg.sha512",
+    "C:\\Users\\paulo\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\10.3.6\\fluentvalidation.dependencyinjectionextensions.10.3.6.nupkg.sha512",
     "C:\\Users\\paulo\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\paulo\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.1\\microsoft.bcl.hashcode.1.1.1.nupkg.sha512",
     "C:\\Users\\paulo\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
