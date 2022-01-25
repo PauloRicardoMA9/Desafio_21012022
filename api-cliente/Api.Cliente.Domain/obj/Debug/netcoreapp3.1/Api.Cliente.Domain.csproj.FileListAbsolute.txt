@@ -8,3 +8,6 @@ C:\Dev\Desafio_21012022\api-cliente\Api.Cliente.Domain\obj\Debug\netcoreapp3.1\A
 C:\Dev\Desafio_21012022\api-cliente\Api.Cliente.Domain\obj\Debug\netcoreapp3.1\Api.Cliente.Domain.csproj.CoreCompileInputs.cache
 C:\Dev\Desafio_21012022\api-cliente\Api.Cliente.Domain\obj\Debug\netcoreapp3.1\Api.Cliente.Domain.dll
 C:\Dev\Desafio_21012022\api-cliente\Api.Cliente.Domain\obj\Debug\netcoreapp3.1\Api.Cliente.Domain.pdb
+C:\Dev\Desafio_21012022\api-cliente\Api.Cliente.Domain\bin\Debug\netcoreapp3.1\Api.Cliente.Business.dll
+C:\Dev\Desafio_21012022\api-cliente\Api.Cliente.Domain\bin\Debug\netcoreapp3.1\Api.Cliente.Business.pdb
+C:\Dev\Desafio_21012022\api-cliente\Api.Cliente.Domain\obj\Debug\netcoreapp3.1\Api.Cliente.Domain.csproj.CopyComplete

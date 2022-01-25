@@ -20,6 +20,7 @@ namespace Api.Cliente
         {
             services.AddControllers();
             services.AddContextos(Configuration);
+            services.AddAutoMapper(typeof(Startup));
             services.ResolverDependencias();
         }
 

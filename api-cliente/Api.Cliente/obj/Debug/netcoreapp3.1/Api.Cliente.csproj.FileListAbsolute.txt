@@ -63,3 +63,5 @@ C:\Dev\Desafio_21012022\api-cliente\Api.Cliente\bin\Debug\netcoreapp3.1\Api.Clie
 C:\Dev\Desafio_21012022\api-cliente\Api.Cliente\bin\Debug\netcoreapp3.1\Api.Cliente.Domain.pdb
 C:\Dev\Desafio_21012022\api-cliente\Api.Cliente\obj\Debug\netcoreapp3.1\Api.Cliente.csproj.CopyComplete
 C:\Dev\Desafio_21012022\api-cliente\Api.Cliente\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Dev\Desafio_21012022\api-cliente\Api.Cliente\bin\Debug\netcoreapp3.1\Api.Cliente.Business.dll
+C:\Dev\Desafio_21012022\api-cliente\Api.Cliente\bin\Debug\netcoreapp3.1\Api.Cliente.Business.pdb
