@@ -11,24 +11,24 @@ namespace Api.Cliente.ViewModels
 
         public Guid IdCliente { get; set; }
 
-        [Required(ErrorMessage = "O campo {0} é obrigatório.")]
-        [StringLength(200, ErrorMessage = "O campo {0} precisa ter entre {1} e {2} caracteres.", MinimumLength = 2)]
+        [Required(ErrorMessage = "O {0} é obrigatório.")]
+        [StringLength(200, ErrorMessage = "O {0} precisa ter entre {1} e {2} caracteres.", MinimumLength = 2)]
         public string Logradouro { get; set; }
 
-        [Required(ErrorMessage = "O campo {0} é obrigatório.")]
-        [IntLenght(1, 10, ErrorMessage = "O campo {0} precisa ter entre 1 e 10 dígitos.")]
+        [Required(ErrorMessage = "O {0} é obrigatório.")]
+        [IntLenght(1, 10, ErrorMessage = "O {0} precisa ter entre 1 e 10 dígitos.")]
         public int Numero { get; set; }
 
-        [Required(ErrorMessage = "O campo {0} é obrigatório.")]
-        [StringLength(100, ErrorMessage = "O campo {0} precisa ter entre {1} e {2} caracteres.", MinimumLength = 2)]
+        [Required(ErrorMessage = "O {0} é obrigatório.")]
+        [StringLength(100, ErrorMessage = "O {0} precisa ter entre {1} e {2} caracteres.", MinimumLength = 2)]
         public string Bairro { get; set; }
 
-        [Required(ErrorMessage = "O campo {0} é obrigatório.")]
-        [StringLength(100, ErrorMessage = "O campo {0} precisa ter entre {1} e {2} caracteres.", MinimumLength = 2)]
+        [Required(ErrorMessage = "A {0} é obrigatório.")]
+        [StringLength(100, ErrorMessage = "A {0} precisa ter entre {1} e {2} caracteres.", MinimumLength = 2)]
         public string Cidade { get; set; }
 
-        [Required(ErrorMessage = "O campo {0} é obrigatório.")]
-        [StringLength(50, ErrorMessage = "O campo {0} precisa ter entre {1} e {2} caracteres.", MinimumLength = 2)]
+        [Required(ErrorMessage = "O {0} é obrigatório.")]
+        [StringLength(50, ErrorMessage = "O {0} precisa ter entre {1} e {2} caracteres.", MinimumLength = 2)]
         public string Estado { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório.")]

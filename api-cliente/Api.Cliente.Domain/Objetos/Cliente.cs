@@ -29,7 +29,7 @@ namespace Api.Cliente.Domain.Objetos
 
             RuleFor(cliente => CpfValidation.Validate(cliente.Cpf))
                 .Equal(true)
-                    .WithMessage("O {PropertyName} fornecido não é válido.");
+                    .WithMessage("O Cpf fornecido não é válido.");
 
             RuleFor(cliente => cliente.Sexo)
                 .NotNull()

@@ -68,3 +68,7 @@ C:\Dev\Desafio_21012022\api-cliente\Api.Cliente\bin\Debug\netcoreapp3.1\Api.Clie
 C:\Dev\Desafio_21012022\api-cliente\Api.Cliente\bin\Debug\netcoreapp3.1\AutoMapper.dll
 C:\Dev\Desafio_21012022\api-cliente\Api.Cliente\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Dev\Desafio_21012022\api-cliente\Api.Cliente\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
+C:\Dev\Desafio_21012022\api-cliente\Api.Cliente\bin\Debug\netcoreapp3.1\FluentValidation.dll
+C:\Dev\Desafio_21012022\api-cliente\Api.Cliente\bin\Debug\netcoreapp3.1\FluentValidation.AspNetCore.dll
+C:\Dev\Desafio_21012022\api-cliente\Api.Cliente\bin\Debug\netcoreapp3.1\FluentValidation.DependencyInjectionExtensions.dll
+C:\Dev\Desafio_21012022\api-cliente\Api.Cliente\obj\Debug\netcoreapp3.1\Api.Cliente.MvcApplicationPartsAssemblyInfo.cs

@@ -1,4 +1,5 @@
 ﻿using Api.Cliente.Business.Intefaces;
+using Api.Cliente.Business.Interfaces;
 using Api.Cliente.ViewModels;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
@@ -11,19 +12,25 @@ namespace Api.Cliente.Controllers
     public class ClientesController : MainController
     {
         private readonly IMapper _mapper;
+        private readonly IClienteService _clienteService;
 
-        public ClientesController(IMapper mapper, INotificador notificador) : base(notificador)
+        public ClientesController(IMapper mapper, IClienteService clienteService, INotificador notificador) : base(notificador)
         {
             _mapper = mapper;
+            _clienteService = clienteService;
         }
 
         [HttpPost]
         [Route("cliente/adicionar")]
         public async Task<IActionResult> Adicionar(ClienteViewModel clienteViewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return NotificarErroModelInvalida(ModelState);
+            }
+
             var cliente = _mapper.Map<Domain.Objetos.Cliente>(clienteViewModel);
-            //var operacaoSucedida = await _clienteService.Adicionar(cliente);
-            var operacaoSucedida = true;
+            var operacaoSucedida = _clienteService.Adicionar(cliente);
 
             if (operacaoSucedida)
             {
