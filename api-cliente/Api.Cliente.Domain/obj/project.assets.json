@@ -10,6 +10,16 @@
         "runtime": {
           "lib/netcoreapp3.1/DocumentValidator.dll": {}
         }
+      },
+      "Api.Cliente.Business/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/Api.Cliente.Business.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Api.Cliente.Business.dll": {}
+        }
       }
     }
   },
@@ -28,10 +38,16 @@
         "lib/netcoreapp3.1/DocumentValidator.xml",
         "readme.txt"
       ]
+    },
+    "Api.Cliente.Business/1.0.0": {
+      "type": "project",
+      "path": "../Api.Cliente.Business/Api.Cliente.Business.csproj",
+      "msbuildProject": "../Api.Cliente.Business/Api.Cliente.Business.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "Api.Cliente.Business >= 1.0.0",
       "DocsBRValidator >= 1.2.1"
     ]
   },
@@ -66,7 +82,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente.Business\\Api.Cliente.Business.csproj": {
+              "projectPath": "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente.Business\\Api.Cliente.Business.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

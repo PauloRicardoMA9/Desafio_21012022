@@ -8,4 +8,8 @@
     <PackageReference Include="DocsBRValidator" Version="1.2.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Api.Cliente.Business\Api.Cliente.Business.csproj" />
+  </ItemGroup>
+
 </Project>

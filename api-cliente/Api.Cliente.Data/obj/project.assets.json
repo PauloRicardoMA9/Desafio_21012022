@@ -1505,10 +1505,21 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "Api.Cliente.Business/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/Api.Cliente.Business.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Api.Cliente.Business.dll": {}
+        }
+      },
       "Api.Cliente.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "Api.Cliente.Business": "1.0.0",
           "DocsBRValidator": "1.2.1"
         },
         "compile": {
@@ -5749,6 +5760,11 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
+    },
+    "Api.Cliente.Business/1.0.0": {
+      "type": "project",
+      "path": "../Api.Cliente.Business/Api.Cliente.Business.csproj",
+      "msbuildProject": "../Api.Cliente.Business/Api.Cliente.Business.csproj"
     },
     "Api.Cliente.Domain/1.0.0": {
       "type": "project",

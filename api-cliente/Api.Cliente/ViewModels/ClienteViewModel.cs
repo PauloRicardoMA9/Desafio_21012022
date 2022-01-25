@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Api.Cliente.Application.ViewModels
+namespace Api.Cliente.ViewModels
 {
     public class ClienteViewModel
     {
