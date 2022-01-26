@@ -2,6 +2,8 @@
 using Api.Cliente.Business.Interfaces;
 using Api.Cliente.Data.Interfaces;
 using Api.Cliente.Domain.Objetos;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -37,6 +39,16 @@ namespace Api.Cliente.Business.Services
 
             _clienteRepository.Adicionar(cliente);
             return await _clienteRepository.UnitOfWork.Commit();
+        }
+
+        public async Task<IEnumerable<Domain.Objetos.Cliente>> ObterTodos()
+        {
+            return await _clienteRepository.ObterTodos();
+        }
+
+        public async Task<Domain.Objetos.Cliente> ObterPorId(Guid id)
+        {
+            return await _clienteRepository.ObterPorId(id);
         }
 
         private bool ValidarCliente(Domain.Objetos.Cliente cliente)

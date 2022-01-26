@@ -3,6 +3,8 @@ using Api.Cliente.Business.Interfaces;
 using Api.Cliente.ViewModels;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Api.Cliente.Controllers
@@ -34,10 +36,36 @@ namespace Api.Cliente.Controllers
 
             if (operacaoSucedida)
             {
-                return CreatedAtAction("Adicionar", null);
+                return CreatedAtAction("Create", null);
             }
 
             return ReturnBadRequest();
+        }
+
+        [HttpGet]
+        [Route("clientes")]
+        public async Task<IEnumerable<ClienteViewModel>> Read()
+        {
+            var clientes = await _clienteService.ObterTodos();
+            var clientesViewModel = _mapper.Map<IEnumerable<ClienteViewModel>>(clientes);
+
+            return clientesViewModel;
+        }
+
+        [HttpGet]
+        [Route("cliente/{id:guid}")]
+        public async Task<ActionResult<ClienteViewModel>> Read(Guid id)
+        {
+            var cliente = await _clienteService.ObterPorId(id);
+            
+            if (cliente == null)
+            {
+                return NotFound();
+            }
+
+            var clienteViewModel = _mapper.Map<ClienteViewModel>(cliente);
+
+            return clienteViewModel;
         }
     }
 }
