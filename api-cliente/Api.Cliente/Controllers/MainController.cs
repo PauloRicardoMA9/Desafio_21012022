@@ -28,7 +28,7 @@ namespace Api.Cliente.Controllers
             foreach (var erro in erros)
             {
                 var errorMessage = erro.Exception == null ? erro.ErrorMessage : erro.Exception.Message;
-                NotificarErro(errorMessage);
+                Notificar(errorMessage);
             }
 
             return ReturnBadRequest();
@@ -50,7 +50,7 @@ namespace Api.Cliente.Controllers
             });
         }
 
-        protected void NotificarErro(string mensagem)
+        protected void Notificar(string mensagem)
         {
             _notificador.Adicionar(new Notificacao(mensagem));
         }

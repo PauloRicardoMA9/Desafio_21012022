@@ -10,6 +10,7 @@ namespace Api.Cliente.Business.Interfaces
         public Task<IEnumerable<Domain.Objetos.Cliente>> ObterTodos();
         public Task<Domain.Objetos.Cliente> ObterPorId(Guid id);
         public Task<bool> ClienteCadastrado(Guid id);
+        public Task<bool> Atualizar(Domain.Objetos.Cliente cliente);
         public Task<bool> Remover(Guid id);
     }
 }

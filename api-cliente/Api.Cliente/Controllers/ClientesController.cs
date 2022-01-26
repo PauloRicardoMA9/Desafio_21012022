@@ -67,12 +67,39 @@ namespace Api.Cliente.Controllers
             return clienteViewModel;
         }
 
+        [HttpPut]
+        [Route("{id:guid}")]
+        public async Task<IActionResult> Put(Guid id, ClienteViewModel clienteViewModel)
+        {
+            var clienteCadastrado = await _clienteService.ClienteCadastrado(id);
+            if (!clienteCadastrado)
+            {
+                return NotFound();
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return NotificarErroModelInvalida(ModelState);
+            }
+
+            clienteViewModel.Id = id;
+            var cliente = _mapper.Map<Domain.Objetos.Cliente>(clienteViewModel);
+
+            var operacaoSucedida = await _clienteService.Atualizar(cliente);
+
+            if (operacaoSucedida)
+            {
+                return NoContent();
+            }
+
+            return ReturnBadRequest();
+        }
+
         [HttpDelete]
         [Route("{id:guid}")]
         public async Task<IActionResult> Delete(Guid id)
         {
             var clienteCadastrado = await _clienteService.ClienteCadastrado(id);
-
             if (!clienteCadastrado)
             {
                 return NotFound();

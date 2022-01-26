@@ -25,13 +25,13 @@ namespace Api.Cliente.Business.Services
                 return false;
             }
 
-            if (ClienteCadastradoComCpf(cliente.Cpf))
+            if (ClienteCadastradoComCpf(cliente.Cpf, cliente.Id))
             {
                 Notificar("Já existe um cliente cadastrado com este CPF.");
                 return false;
             }
 
-            if (ClienteCadastradoComEmail(cliente.Email))
+            if (ClienteCadastradoComEmail(cliente.Email, cliente.Id))
             {
                 Notificar("Já existe um cliente cadastrado com este Email.");
                 return false;
@@ -63,6 +63,29 @@ namespace Api.Cliente.Business.Services
             return true;
         }
 
+        public async Task<bool> Atualizar(Domain.Objetos.Cliente cliente)
+        {
+            if (!ValidarCliente(cliente))
+            {
+                return false;
+            }
+
+            if (ClienteCadastradoComCpf(cliente.Cpf, cliente.Id))
+            {
+                Notificar("Já existe um cliente cadastrado com este CPF.");
+                return false;
+            }
+
+            if (ClienteCadastradoComEmail(cliente.Email, cliente.Id))
+            {
+                Notificar("Já existe um cliente cadastrado com este Email.");
+                return false;
+            }
+
+            _clienteRepository.Atualizar(cliente);
+            return await _clienteRepository.UnitOfWork.Commit(); ;
+        }
+
         public async Task<bool> Remover(Guid id)
         {
             _clienteRepository.Remover(id);
@@ -74,14 +97,14 @@ namespace Api.Cliente.Business.Services
             return ExecutarValidacao(new ClienteValidation(), cliente);
         }
 
-        private bool ClienteCadastradoComCpf(string cpf)
+        private bool ClienteCadastradoComCpf(string cpf, Guid id)
         {
-            return _clienteRepository.Buscar(clienteCadastrado => clienteCadastrado.Cpf == cpf).Result.Any();
+            return _clienteRepository.Buscar(clienteCadastrado => clienteCadastrado.Cpf == cpf && clienteCadastrado.Id != id).Result.Any();
         }
 
-        private bool ClienteCadastradoComEmail(string email)
+        private bool ClienteCadastradoComEmail(string email, Guid id)
         {
-            return _clienteRepository.Buscar(clienteCadastrado => clienteCadastrado.Email == email).Result.Any();
+            return _clienteRepository.Buscar(clienteCadastrado => clienteCadastrado.Email == email && clienteCadastrado.Id != id).Result.Any();
         }
 
         public void Dispose()
