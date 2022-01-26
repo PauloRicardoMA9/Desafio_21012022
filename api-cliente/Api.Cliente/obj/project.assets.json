@@ -1572,6 +1572,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "Api.Cliente.Data": "1.0.0",
           "Api.Cliente.Domain": "1.0.0"
         },
         "compile": {

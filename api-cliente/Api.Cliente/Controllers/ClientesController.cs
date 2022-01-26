@@ -22,7 +22,7 @@ namespace Api.Cliente.Controllers
 
         [HttpPost]
         [Route("cliente/adicionar")]
-        public async Task<IActionResult> Adicionar(ClienteViewModel clienteViewModel)
+        public async Task<IActionResult> Create(ClienteViewModel clienteViewModel)
         {
             if (!ModelState.IsValid)
             {
@@ -30,7 +30,7 @@ namespace Api.Cliente.Controllers
             }
 
             var cliente = _mapper.Map<Domain.Objetos.Cliente>(clienteViewModel);
-            var operacaoSucedida = _clienteService.Adicionar(cliente);
+            var operacaoSucedida = await _clienteService.Adicionar(cliente);
 
             if (operacaoSucedida)
             {

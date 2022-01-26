@@ -1494,6 +1494,7 @@
       },
       "Api.Cliente.Business/1.0.0": {
         "dependencies": {
+          "Api.Cliente.Data": "1.0.0",
           "Api.Cliente.Domain": "1.0.0"
         },
         "runtime": {

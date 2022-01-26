@@ -11,3 +11,5 @@ C:\Dev\Desafio_21012022\api-cliente\Api.Cliente.Business\obj\Debug\netcoreapp3.1
 C:\Dev\Desafio_21012022\api-cliente\Api.Cliente.Business\bin\Debug\netcoreapp3.1\Api.Cliente.Domain.dll
 C:\Dev\Desafio_21012022\api-cliente\Api.Cliente.Business\bin\Debug\netcoreapp3.1\Api.Cliente.Domain.pdb
 C:\Dev\Desafio_21012022\api-cliente\Api.Cliente.Business\obj\Debug\netcoreapp3.1\Api.Cliente.Business.csproj.CopyComplete
+C:\Dev\Desafio_21012022\api-cliente\Api.Cliente.Business\bin\Debug\netcoreapp3.1\Api.Cliente.Data.dll
+C:\Dev\Desafio_21012022\api-cliente\Api.Cliente.Business\bin\Debug\netcoreapp3.1\Api.Cliente.Data.pdb

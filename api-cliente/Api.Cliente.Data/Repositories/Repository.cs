@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using Api.Cliente.Data;
 using Api.Cliente.Data.Interfaces;
 using Api.Cliente.Domain.Objetos;
 using Microsoft.EntityFrameworkCore;
 
-namespace ma9.Data.Repository
+namespace Api.Cliente.Data.Repositories
 {
     public abstract class Repository<TEntidade> : IRepository<TEntidade> where TEntidade : Entidade, new()
     {
@@ -30,7 +29,7 @@ namespace ma9.Data.Repository
 
         public async Task<IEnumerable<TEntidade>> Buscar(Expression<Func<TEntidade, bool>> predicate)
         {
-            return await DbSet.AsNoTracking().Where(predicate).ToListAsync();
+            return await DbSet.Where(predicate).ToListAsync();
         }
 
         public virtual async Task<TEntidade> ObterPorId(Guid id)

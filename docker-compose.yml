@@ -8,8 +8,4 @@ services:
     environment:
       ACCEPT_EULA: "Y"
       SA_PASSWORD: "!senha_super_secreta"
-    networks: 
-      - backend
     restart: always
-networks:
-  backend: 

@@ -32,6 +32,9 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
+              "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente.Data\\Api.Cliente.Data.csproj": {
+                "projectPath": "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente.Data\\Api.Cliente.Data.csproj"
+              },
               "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente.Domain\\Api.Cliente.Domain.csproj": {
                 "projectPath": "C:\\Dev\\Desafio_21012022\\api-cliente\\Api.Cliente.Domain\\Api.Cliente.Domain.csproj"
               }

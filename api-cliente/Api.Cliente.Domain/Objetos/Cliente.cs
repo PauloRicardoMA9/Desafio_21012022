@@ -22,8 +22,6 @@ namespace Api.Cliente.Domain.Objetos
             RuleFor(cliente => cliente.Nome)
                 .NotNull()
                     .WithMessage("O {PropertyName} precisa ser fornecido.")
-                .NotEmpty()
-                    .WithMessage("O {PropertyName} precisa ser fornecido.")
                 .Length(2, 60)
                     .WithMessage("O {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
 
@@ -39,9 +37,7 @@ namespace Api.Cliente.Domain.Objetos
 
             RuleFor(cliente => cliente.Email)
                 .EmailAddress()
-                    .WithMessage("O {PropertyName} fornecido não é válido.")
-                .Length(2, 100)
-                    .WithMessage("O {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
+                    .WithMessage("O {PropertyName} fornecido não é válido.");
         }
     }
 }

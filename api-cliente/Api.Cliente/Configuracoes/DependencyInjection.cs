@@ -3,6 +3,8 @@ using Api.Cliente.Business.Interfaces;
 using Api.Cliente.Business.Notificacoes;
 using Api.Cliente.Business.Services;
 using Api.Cliente.Data;
+using Api.Cliente.Data.Interfaces;
+using Api.Cliente.Data.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Api.Cliente.Configuracoes
@@ -14,6 +16,8 @@ namespace Api.Cliente.Configuracoes
             services.AddScoped<INotificador, Notificador>();
 
             services.AddScoped<IClienteService, ClienteService>();
+
+            services.AddScoped<IClienteRepository, ClienteRepository>();
 
             services.AddScoped<ClienteDbContext>();
         }
