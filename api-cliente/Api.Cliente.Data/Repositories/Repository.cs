@@ -37,6 +37,11 @@ namespace Api.Cliente.Data.Repositories
             return await DbSet.FindAsync(id);
         }
 
+        public virtual async Task<TEntidade> ObterPorIdAsNoTracking(Guid id)
+        {
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(tEntidade => tEntidade.Id == id);
+        }
+
         public virtual async Task<List<TEntidade>> ObterTodos()
         {
             return await DbSet.AsNoTracking().ToListAsync();

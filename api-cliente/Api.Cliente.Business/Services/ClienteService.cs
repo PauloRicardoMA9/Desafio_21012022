@@ -51,6 +51,24 @@ namespace Api.Cliente.Business.Services
             return await _clienteRepository.ObterPorId(id);
         }
 
+        public async Task<bool> ClienteCadastrado(Guid id)
+        {
+            var cliente = await _clienteRepository.ObterPorIdAsNoTracking(id);
+            
+            if(cliente == null)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public async Task<bool> Remover(Guid id)
+        {
+            _clienteRepository.Remover(id);
+            return await _clienteRepository.UnitOfWork.Commit();
+        }
+
         private bool ValidarCliente(Domain.Objetos.Cliente cliente)
         {
             return ExecutarValidacao(new ClienteValidation(), cliente);

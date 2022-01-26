@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Api.Cliente.Controllers
 {
     [ApiController]
-    [Route("api")]
+    [Route("api/cliente")]
     public class ClientesController : MainController
     {
         private readonly IMapper _mapper;
@@ -23,7 +23,6 @@ namespace Api.Cliente.Controllers
         }
 
         [HttpPost]
-        [Route("cliente/adicionar")]
         public async Task<IActionResult> Create(ClienteViewModel clienteViewModel)
         {
             if (!ModelState.IsValid)
@@ -43,7 +42,7 @@ namespace Api.Cliente.Controllers
         }
 
         [HttpGet]
-        [Route("clientes")]
+        [Route("~/api/clientes")]
         public async Task<IEnumerable<ClienteViewModel>> Read()
         {
             var clientes = await _clienteService.ObterTodos();
@@ -53,7 +52,7 @@ namespace Api.Cliente.Controllers
         }
 
         [HttpGet]
-        [Route("cliente/{id:guid}")]
+        [Route("{id:guid}")]
         public async Task<ActionResult<ClienteViewModel>> Read(Guid id)
         {
             var cliente = await _clienteService.ObterPorId(id);
@@ -66,6 +65,27 @@ namespace Api.Cliente.Controllers
             var clienteViewModel = _mapper.Map<ClienteViewModel>(cliente);
 
             return clienteViewModel;
+        }
+
+        [HttpDelete]
+        [Route("{id:guid}")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var clienteCadastrado = await _clienteService.ClienteCadastrado(id);
+
+            if (!clienteCadastrado)
+            {
+                return NotFound();
+            }
+            
+            var operacaoSucedida = await _clienteService.Remover(id);
+
+            if (operacaoSucedida)
+            {
+                return NoContent();
+            }
+
+            return ReturnBadRequest();
         }
     }
 }

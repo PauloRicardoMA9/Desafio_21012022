@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace Api.Cliente.Data.Interfaces
 {
-    public interface IRepository<TEntity> : IDisposable where TEntity : Entidade
+    public interface IRepository<TEntidade> : IDisposable where TEntidade : Entidade
     {
         IUnitOfWork UnitOfWork { get; }
-        void Adicionar(TEntity entity);
-        Task<TEntity> ObterPorId(Guid id);
-        Task<List<TEntity>> ObterTodos();
-        void Atualizar(TEntity entity);
+        void Adicionar(TEntidade entity);
+        Task<TEntidade> ObterPorId(Guid id);
+        Task<TEntidade> ObterPorIdAsNoTracking(Guid id);
+        Task<List<TEntidade>> ObterTodos();
+        void Atualizar(TEntidade entity);
         void Remover(Guid id);
-        Task<IEnumerable<TEntity>> Buscar(Expression<Func<TEntity, bool>> predicate);
+        Task<IEnumerable<TEntidade>> Buscar(Expression<Func<TEntidade, bool>> predicate);
     }
 }
