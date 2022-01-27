@@ -7,14 +7,39 @@ namespace Api.Cliente.Domain.Objetos
     public class Endereco : Entidade
     {
         public Guid IdCliente { get; private set; }
-        public string Logradouro { get; set; }
-        public int Numero { get; set; }
-        public string Bairro { get; set; }
-        public string Cidade { get; set; }
-        public string Estado { get; set; }
-        public bool Principal { get; set; }
+        public string Logradouro { get; private set; }
+        public int Numero { get; private set; }
+        public string Bairro { get; private set; }
+        public string Cidade { get; private set; }
+        public string Estado { get; private set; }
+        public bool Principal { get; private set; }
 
         public Cliente Cliente { get; set; }
+
+        public void DefinirLogradouro(string logradouro)
+        {
+            Logradouro = logradouro;
+        }
+        public void DefinirNumero(int numero)
+        {
+            Numero = numero;
+        }
+        public void DefinirBairro(string bairro)
+        {
+            Bairro = bairro;
+        }
+        public void DefinirCidade(string cidade)
+        {
+            Cidade = cidade;
+        }
+        public void DefinirEstado(string estado)
+        {
+            Estado = estado;
+        }
+        public void DefinirPrincipal(bool principal)
+        {
+            Principal = principal;
+        }
     }
 
     public class EnderecoValidation : AbstractValidator<Endereco>
@@ -23,6 +48,8 @@ namespace Api.Cliente.Domain.Objetos
         {
             RuleFor(endereco => endereco.Logradouro)
                 .NotEmpty()
+                    .WithMessage("O {PropertyName} precisa ser fornecido.")
+                .NotNull()
                     .WithMessage("O {PropertyName} precisa ser fornecido.")
                 .Length(2, 200)
                     .WithMessage("O {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres");

@@ -50,18 +50,8 @@ namespace Api.Cliente.Controllers
         }
 
         [HttpGet]
-        [Route("~/api/telefones")]
-        public async Task<IEnumerable<TelefoneViewModel>> Read()
-        {
-            var telefones = await _telefoneService.ObterTodos();
-            var telefoneViewModels = _mapper.Map<IEnumerable<TelefoneViewModel>>(telefones);
-
-            return telefoneViewModels;
-        }
-
-        [HttpGet]
         [Route("{id:guid}")]
-        public async Task<ActionResult<TelefoneViewModel>> Read(Guid id)
+        public async Task<ActionResult<TelefoneViewModel>> ReadById(Guid id)
         {
             var telefone = await _telefoneService.ObterPorId(id);
 
@@ -77,18 +67,28 @@ namespace Api.Cliente.Controllers
 
         [HttpGet]
         [Route("~/api/telefones/cliente/{idCliente:guid}")]
-        public async Task<IEnumerable<TelefoneViewModel>> ReadByCliente(Guid idCliente)
+        public async Task<IEnumerable<TelefoneViewModel>> ReadByClienteId(Guid idCliente)
         {
-            var telefones = await _telefoneService.ObterPorCliente(idCliente);
+            var telefones = await _telefoneService.ObterPorClienteId(idCliente);
 
             var telefonesViewModel = _mapper.Map<IEnumerable<TelefoneViewModel>>(telefones);
 
             return telefonesViewModel;
         }
+        
+        [HttpGet]
+        [Route("~/api/telefones")]
+        public async Task<IEnumerable<TelefoneViewModel>> ReadAll()
+        {
+            var telefones = await _telefoneService.ObterTodos();
+            var telefoneViewModels = _mapper.Map<IEnumerable<TelefoneViewModel>>(telefones);
+
+            return telefoneViewModels;
+        }
 
         [HttpPut]
         [Route("{id:guid}")]
-        public async Task<IActionResult> Put(Guid id, TelefoneViewModel telefoneViewModel)
+        public async Task<IActionResult> Update(Guid id, TelefoneViewModel telefoneViewModel)
         {
             var telefone = await _telefoneService.ObterTelefoneCadastrado(id);
             if (telefone == null)

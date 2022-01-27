@@ -17,9 +17,11 @@ namespace Api.Cliente.Configuracoes
 
             services.AddScoped<IClienteService, ClienteService>();
             services.AddScoped<ITelefoneService, TelefoneService>();
+            services.AddScoped<IEnderecoService, EnderecoService>();
 
             services.AddScoped<IClienteRepository, ClienteRepository>();
             services.AddScoped<ITelefoneRepository, TelefoneRepository>();
+            services.AddScoped<IEnderecoRepository, EnderecoRepository>();
 
             services.AddScoped<ClienteDbContext>();
         }

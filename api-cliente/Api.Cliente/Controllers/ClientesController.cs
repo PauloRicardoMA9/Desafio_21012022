@@ -42,18 +42,8 @@ namespace Api.Cliente.Controllers
         }
 
         [HttpGet]
-        [Route("~/api/clientes")]
-        public async Task<IEnumerable<ClienteViewModel>> Read()
-        {
-            var clientes = await _clienteService.ObterTodos();
-            var clientesViewModel = _mapper.Map<IEnumerable<ClienteViewModel>>(clientes);
-
-            return clientesViewModel;
-        }
-
-        [HttpGet]
         [Route("{id:guid}")]
-        public async Task<ActionResult<ClienteViewModel>> Read(Guid id)
+        public async Task<ActionResult<ClienteViewModel>> ReadById(Guid id)
         {
             var cliente = await _clienteService.ObterPorId(id);
             
@@ -67,9 +57,19 @@ namespace Api.Cliente.Controllers
             return clienteViewModel;
         }
 
+        [HttpGet]
+        [Route("~/api/clientes")]
+        public async Task<IEnumerable<ClienteViewModel>> ReadAll()
+        {
+            var clientes = await _clienteService.ObterTodos();
+            var clientesViewModel = _mapper.Map<IEnumerable<ClienteViewModel>>(clientes);
+
+            return clientesViewModel;
+        }
+
         [HttpPut]
         [Route("{id:guid}")]
-        public async Task<IActionResult> Put(Guid id, ClienteViewModel clienteViewModel)
+        public async Task<IActionResult> Update(Guid id, ClienteViewModel clienteViewModel)
         {
             var clienteCadastrado = await _clienteService.ClienteCadastrado(id);
             if (!clienteCadastrado)
