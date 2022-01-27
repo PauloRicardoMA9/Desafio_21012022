@@ -49,31 +49,31 @@ namespace Api.Cliente.Controllers
             return ReturnBadRequest();
         }
 
-        //[HttpGet]
-        //[Route("~/api/clientes")]
-        //public async Task<IEnumerable<ClienteViewModel>> Read()
-        //{
-        //    var clientes = await _telefoneService.ObterTodos();
-        //    var clientesViewModel = _mapper.Map<IEnumerable<ClienteViewModel>>(clientes);
+        [HttpGet]
+        [Route("~/api/telefones")]
+        public async Task<IEnumerable<TelefoneViewModel>> Read()
+        {
+            var telefones = await _telefoneService.ObterTodos();
+            var telefoneViewModels = _mapper.Map<IEnumerable<TelefoneViewModel>>(telefones);
 
-        //    return clientesViewModel;
-        //}
+            return telefoneViewModels;
+        }
 
-        //[HttpGet]
-        //[Route("{id:guid}")]
-        //public async Task<ActionResult<ClienteViewModel>> Read(Guid id)
-        //{
-        //    var cliente = await _telefoneService.ObterPorId(id);
-            
-        //    if (cliente == null)
-        //    {
-        //        return NotFound();
-        //    }
+        [HttpGet]
+        [Route("{id:guid}")]
+        public async Task<ActionResult<TelefoneViewModel>> Read(Guid id)
+        {
+            var telefone = await _telefoneService.ObterPorId(id);
 
-        //    var clienteViewModel = _mapper.Map<ClienteViewModel>(cliente);
+            if (telefone == null)
+            {
+                return NotFound();
+            }
 
-        //    return clienteViewModel;
-        //}
+            var telefoneViewModel = _mapper.Map<TelefoneViewModel>(telefone);
+
+            return telefoneViewModel;
+        }
 
         //[HttpPut]
         //[Route("{id:guid}")]
@@ -112,7 +112,7 @@ namespace Api.Cliente.Controllers
         //    {
         //        return NotFound();
         //    }
-            
+
         //    var operacaoSucedida = await _telefoneService.Remover(id);
 
         //    if (operacaoSucedida)

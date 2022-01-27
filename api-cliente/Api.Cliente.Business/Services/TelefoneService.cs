@@ -40,15 +40,18 @@ namespace Api.Cliente.Business.Services
             return await _telefoneRepository.UnitOfWork.Commit();
         }
 
-        //public async Task<IEnumerable<Domain.Objetos.Cliente>> ObterTodos()
-        //{
-        //    return await _telefoneRepository.ObterTodos();
-        //}
+        public async Task<IEnumerable<Telefone>> ObterTodos()
+        {
+            var telefones = await _telefoneRepository.ObterTodos();
+            telefones = ColocarPrincipalNaFrente(telefones);
 
-        //public async Task<Domain.Objetos.Cliente> ObterPorId(Guid id)
-        //{
-        //    return await _telefoneRepository.ObterPorId(id);
-        //}
+            return telefones;
+        }
+
+        public async Task<Telefone> ObterPorId(Guid id)
+        {
+            return await _telefoneRepository.ObterPorId(id);
+        }
 
         //public async Task<bool> ClienteCadastrado(Guid id)
         //{
@@ -106,6 +109,22 @@ namespace Api.Cliente.Business.Services
             var telefonePrincipalAntigo = (await _telefoneRepository.Buscar(telefoneCadastrado => telefoneCadastrado.IdCliente == telefone.IdCliente && telefoneCadastrado.Principal == true)).First();
             telefonePrincipalAntigo.DefinirPrincipal(false);
             _telefoneRepository.Atualizar(telefonePrincipalAntigo);
+        }
+
+        private List<Telefone> ColocarPrincipalNaFrente(List<Telefone> telefones)
+        {
+            foreach (var telefone in telefones)
+            {
+                if (telefone.Principal == true)
+                {
+                    var telefonePrincipal = telefone;
+                    telefones.Remove(telefonePrincipal);
+                    telefones.Insert(0, telefonePrincipal);
+                    break;
+                }
+            }
+
+            return telefones;
         }
 
         public void Dispose()
