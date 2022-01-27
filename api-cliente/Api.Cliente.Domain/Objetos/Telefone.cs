@@ -12,6 +12,14 @@ namespace Api.Cliente.Domain.Objetos
 
         public Cliente Cliente { get; set; }
 
+        public void DefinirDdd(string ddd)
+        {
+            Ddd = ddd;
+        }
+        public void DefinirNumero(string numero)
+        {
+            Numero = numero;
+        }
         public void DefinirPrincipal(bool principal)
         {
             Principal = principal;

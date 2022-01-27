@@ -20,7 +20,7 @@ namespace Api.Cliente.Business.Services
 
         public async Task<bool> Adicionar(Domain.Objetos.Cliente cliente)
         {
-            if (!ClienteValido(cliente))
+            if (!Validar(cliente))
             {
                 return false;
             }
@@ -65,7 +65,7 @@ namespace Api.Cliente.Business.Services
 
         public async Task<bool> Atualizar(Domain.Objetos.Cliente cliente)
         {
-            if (!ClienteValido(cliente))
+            if (!Validar(cliente))
             {
                 return false;
             }
@@ -83,7 +83,7 @@ namespace Api.Cliente.Business.Services
             }
 
             _clienteRepository.Atualizar(cliente);
-            return await _clienteRepository.UnitOfWork.Commit(); ;
+            return await _clienteRepository.UnitOfWork.Commit();
         }
 
         public async Task<bool> Remover(Guid id)
@@ -92,7 +92,7 @@ namespace Api.Cliente.Business.Services
             return await _clienteRepository.UnitOfWork.Commit();
         }
 
-        private bool ClienteValido(Domain.Objetos.Cliente cliente)
+        private bool Validar(Domain.Objetos.Cliente cliente)
         {
             return ExecutarValidacao(new ClienteValidation(), cliente);
         }

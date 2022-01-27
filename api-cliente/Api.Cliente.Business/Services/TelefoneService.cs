@@ -22,7 +22,7 @@ namespace Api.Cliente.Business.Services
 
         public async Task<bool> Adicionar(Telefone telefone)
         {
-            if (!TelefoneValido(telefone))
+            if (!Validar(telefone))
             {
                 return false;
             }
@@ -33,7 +33,7 @@ namespace Api.Cliente.Business.Services
             }
             else if (telefone.Principal == true)
             {
-                await AlterarTelefoneAntigoPrincipal(telefone);
+                AlterarTelefonePrincipal(await ObterTelefonePrincipal(telefone.IdCliente), false);
             }
 
             _telefoneRepository.Adicionar(telefone);
@@ -53,48 +53,67 @@ namespace Api.Cliente.Business.Services
             return await _telefoneRepository.ObterPorId(id);
         }
 
-        //public async Task<bool> ClienteCadastrado(Guid id)
-        //{
-        //    var cliente = await _telefoneRepository.ObterPorIdAsNoTracking(id);
+        public async Task<bool> Atualizar(Telefone telefone)
+        {
+            if (!Validar(telefone))
+            {
+                return false;
+            }
 
-        //    if(cliente == null)
-        //    {
-        //        return false;
-        //    }
+            var telefonePrincipal = await ObterTelefonePrincipal(telefone.IdCliente);
+            if (!Iguais(telefonePrincipal, telefone) && telefone.Principal)
+            {
+                AlterarTelefonePrincipal(await ObterTelefonePrincipal(telefone.IdCliente), false);
+            }
+            else if (Iguais(telefonePrincipal, telefone) && !telefone.Principal)
+            {
+                var telefonesCadastrados = await ObterTelefonesDoClienteExcluindo(telefone);
 
-        //    return true;
-        //}
+                if (telefonesCadastrados.Count() == 0)
+                {
+                    Notificar("Esse Telefone não pode deixar de ser o Principal pois ele é o único cadastrado.");
+                    return false;
+                }
 
-        //public async Task<bool> Atualizar(Telefone telefone)
-        //{
-        //    if (!ValidarTelefone(telefone))
-        //    {
-        //        return false;
-        //    }
+                AlterarTelefonePrincipal(telefonesCadastrados.First(), true);
+            }
 
-        //    if (telefone.Principal == true)
-        //    {
-        //        var telefonePrincipalAntigo = await _telefoneRepository.ObterPorIdAsNoTracking(telefone.IdCliente);
-        //        telefonePrincipalAntigo.DefinirPrincipal(false);
-        //        _telefoneRepository.Atualizar(telefonePrincipalAntigo);
-        //    }
+            _telefoneRepository.Atualizar(telefone);
+            return await _telefoneRepository.UnitOfWork.Commit();
+        }
 
-        //    _telefoneRepository.Atualizar(telefone);
-        //    return await _telefoneRepository.UnitOfWork.Commit(); ;
-        //}
+        public async Task<bool> Remover(Telefone telefone)
+        {
+            if (telefone.Principal)
+            {
+                var telefonesCadastrados = await ObterTelefonesDoClienteExcluindo(telefone);
 
-        //public async Task<bool> Remover(Guid id)
-        //{
-        //    _telefoneRepository.Remover(id);
-        //    return await _telefoneRepository.UnitOfWork.Commit();
-        //}
+                if (telefonesCadastrados.Count() > 0)
+                {
+                    AlterarTelefonePrincipal(telefonesCadastrados.First(), true);
+                }
+            }
+
+            _telefoneRepository.Remover(telefone.Id);
+            return await _telefoneRepository.UnitOfWork.Commit();
+        }
 
         public async Task<bool> ClienteCadastrado(Guid idCliente)
         {
             return await _clienteService.ClienteCadastrado(idCliente);
         }
 
-        private bool TelefoneValido(Telefone telefone)
+        public async Task<Telefone> ObterTelefoneCadastrado(Guid id)
+        {
+            return await _telefoneRepository.ObterPorIdAsNoTracking(id);
+        }
+
+        private async Task<IEnumerable<Telefone>> ObterTelefonesDoClienteExcluindo(Telefone telefone)
+        {
+            return await _telefoneRepository.Buscar(telefonesCadastrados => telefonesCadastrados.IdCliente == telefone.IdCliente && telefonesCadastrados.Id != telefone.Id);
+        }
+
+        private bool Validar(Telefone telefone)
         {
             return ExecutarValidacao(new TelefoneValidation(), telefone);
         }
@@ -104,11 +123,15 @@ namespace Api.Cliente.Business.Services
             return !_telefoneRepository.Buscar(telefoneCadastrado => telefoneCadastrado.IdCliente == idCliente && telefoneCadastrado.Principal == true).Result.Any();
         }
 
-        private async Task AlterarTelefoneAntigoPrincipal(Telefone telefone)
+        private async Task<Telefone> ObterTelefonePrincipal(Guid idCliente)
         {
-            var telefonePrincipalAntigo = (await _telefoneRepository.Buscar(telefoneCadastrado => telefoneCadastrado.IdCliente == telefone.IdCliente && telefoneCadastrado.Principal == true)).First();
-            telefonePrincipalAntigo.DefinirPrincipal(false);
-            _telefoneRepository.Atualizar(telefonePrincipalAntigo);
+            return (await _telefoneRepository.Buscar(telefoneCadastrado => telefoneCadastrado.IdCliente == idCliente && telefoneCadastrado.Principal == true)).First();
+        }
+
+        private void AlterarTelefonePrincipal(Telefone telefone, bool principal)
+        {
+            telefone.DefinirPrincipal(principal);
+            _telefoneRepository.Atualizar(telefone);
         }
 
         private List<Telefone> ColocarPrincipalNaFrente(List<Telefone> telefones)
@@ -125,6 +148,11 @@ namespace Api.Cliente.Business.Services
             }
 
             return telefones;
+        }
+
+        private bool Iguais(Telefone telefone1, Telefone telefone2)
+        {
+            return telefone1.Id == telefone2.Id;
         }
 
         public void Dispose()

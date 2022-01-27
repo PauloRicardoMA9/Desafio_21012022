@@ -75,52 +75,54 @@ namespace Api.Cliente.Controllers
             return telefoneViewModel;
         }
 
-        //[HttpPut]
-        //[Route("{id:guid}")]
-        //public async Task<IActionResult> Put(Guid id, ClienteViewModel clienteViewModel)
-        //{
-        //    var clienteCadastrado = await _telefoneService.ClienteCadastrado(id);
-        //    if (!clienteCadastrado)
-        //    {
-        //        return NotFound();
-        //    }
+        [HttpPut]
+        [Route("{id:guid}")]
+        public async Task<IActionResult> Put(Guid id, TelefoneViewModel telefoneViewModel)
+        {
+            var telefone = await _telefoneService.ObterTelefoneCadastrado(id);
+            if (telefone == null)
+            {
+                return NotFound();
+            }
 
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return NotificarErroModelInvalida(ModelState);
-        //    }
+            ModelState.Remove("IdCliente");
+            if (!ModelState.IsValid)
+            {
+                return NotificarErroModelInvalida(ModelState);
+            }
 
-        //    clienteViewModel.Id = id;
-        //    var cliente = _mapper.Map<Domain.Objetos.Cliente>(clienteViewModel);
+            telefone.DefinirDdd(telefoneViewModel.Ddd);
+            telefone.DefinirNumero(telefoneViewModel.Numero);
+            telefone.DefinirPrincipal(telefoneViewModel.Principal);
 
-        //    var operacaoSucedida = await _telefoneService.Atualizar(cliente);
+            var operacaoSucedida = await _telefoneService.Atualizar(telefone);
 
-        //    if (operacaoSucedida)
-        //    {
-        //        return NoContent();
-        //    }
+            if (operacaoSucedida)
+            {
+                return NoContent();
+            }
 
-        //    return ReturnBadRequest();
-        //}
+            return ReturnBadRequest();
+        }
 
-        //[HttpDelete]
-        //[Route("{id:guid}")]
-        //public async Task<IActionResult> Delete(Guid id)
-        //{
-        //    var clienteCadastrado = await _telefoneService.ClienteCadastrado(id);
-        //    if (!clienteCadastrado)
-        //    {
-        //        return NotFound();
-        //    }
+        [HttpDelete]
+        [Route("{id:guid}")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var telefone = await _telefoneService.ObterTelefoneCadastrado(id);
+            if (telefone == null)
+            {
+                return NotFound();
+            }
 
-        //    var operacaoSucedida = await _telefoneService.Remover(id);
+            var operacaoSucedida = await _telefoneService.Remover(telefone);
 
-        //    if (operacaoSucedida)
-        //    {
-        //        return NoContent();
-        //    }
+            if (operacaoSucedida)
+            {
+                return NoContent();
+            }
 
-        //    return ReturnBadRequest();
-        //}
+            return ReturnBadRequest();
+        }
     }
 }
