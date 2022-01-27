@@ -53,6 +53,11 @@ namespace Api.Cliente.Business.Services
             return await _telefoneRepository.ObterPorId(id);
         }
 
+        public async Task<IEnumerable<Telefone>> ObterPorCliente(Guid idCliente)
+        {
+            return await _telefoneRepository.Buscar(telefones => telefones.IdCliente == idCliente);
+        }
+
         public async Task<bool> Atualizar(Telefone telefone)
         {
             if (!Validar(telefone))
@@ -97,6 +102,10 @@ namespace Api.Cliente.Business.Services
             _telefoneRepository.Remover(telefone.Id);
             return await _telefoneRepository.UnitOfWork.Commit();
         }
+
+
+
+
 
         public async Task<bool> ClienteCadastrado(Guid idCliente)
         {

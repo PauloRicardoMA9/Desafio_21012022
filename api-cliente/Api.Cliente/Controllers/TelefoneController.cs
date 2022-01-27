@@ -75,6 +75,17 @@ namespace Api.Cliente.Controllers
             return telefoneViewModel;
         }
 
+        [HttpGet]
+        [Route("~/api/telefones/cliente/{idCliente:guid}")]
+        public async Task<IEnumerable<TelefoneViewModel>> ReadByCliente(Guid idCliente)
+        {
+            var telefones = await _telefoneService.ObterPorCliente(idCliente);
+
+            var telefonesViewModel = _mapper.Map<IEnumerable<TelefoneViewModel>>(telefones);
+
+            return telefonesViewModel;
+        }
+
         [HttpPut]
         [Route("{id:guid}")]
         public async Task<IActionResult> Put(Guid id, TelefoneViewModel telefoneViewModel)
