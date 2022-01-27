@@ -1,11 +1,38 @@
 version: "3.8"
 services:
-  sql-server-db:
+  db:
     container_name: SqlServer
-    image: mcr.microsoft.com/mssql/server:2019-CU14-ubuntu-20.04
+    image: desafio_21012022_db:1.0
+    build:
+      context: .
+      dockerfile: data/Dockerfile
     ports:
       - "1433:1433"
     environment:
       ACCEPT_EULA: "Y"
       SA_PASSWORD: "!senha_super_secreta"
+    volumes:
+      - mssqldata:/var/opt/mssql
+    networks: 
+      - backend
     restart: always
+
+  application:
+    container_name: Application
+    image: desafio_21012022_application:1.0
+    ports:
+      - "80:80"
+    build: 
+      context: api-cliente
+      dockerfile: Api.Cliente/Dockerfile
+    depends_on:
+      - db
+    networks: 
+      - backend
+    restart: always
+
+networks:
+  backend: 
+
+volumes:
+  mssqldata:

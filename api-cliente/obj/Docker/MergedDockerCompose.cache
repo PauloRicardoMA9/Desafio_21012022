@@ -1,0 +1,15 @@
+services:
+  api.cliente:
+    build:
+      context: C:\Dev\Desafio_21012022\api-cliente
+      dockerfile: Api.Cliente/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: apicliente
+    ports:
+    - target: 80
+    - target: 443
+    volumes:
+    - C:\Users\paulo\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+version: '3.4'
