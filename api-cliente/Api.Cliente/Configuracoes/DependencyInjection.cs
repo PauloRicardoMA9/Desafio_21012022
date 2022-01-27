@@ -16,8 +16,10 @@ namespace Api.Cliente.Configuracoes
             services.AddScoped<INotificador, Notificador>();
 
             services.AddScoped<IClienteService, ClienteService>();
+            services.AddScoped<ITelefoneService, TelefoneService>();
 
             services.AddScoped<IClienteRepository, ClienteRepository>();
+            services.AddScoped<ITelefoneRepository, TelefoneRepository>();
 
             services.AddScoped<ClienteDbContext>();
         }

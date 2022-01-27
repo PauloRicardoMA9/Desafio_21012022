@@ -20,7 +20,7 @@ namespace Api.Cliente.Business.Services
 
         public async Task<bool> Adicionar(Domain.Objetos.Cliente cliente)
         {
-            if (!ValidarCliente(cliente))
+            if (!ClienteValido(cliente))
             {
                 return false;
             }
@@ -65,7 +65,7 @@ namespace Api.Cliente.Business.Services
 
         public async Task<bool> Atualizar(Domain.Objetos.Cliente cliente)
         {
-            if (!ValidarCliente(cliente))
+            if (!ClienteValido(cliente))
             {
                 return false;
             }
@@ -92,7 +92,7 @@ namespace Api.Cliente.Business.Services
             return await _clienteRepository.UnitOfWork.Commit();
         }
 
-        private bool ValidarCliente(Domain.Objetos.Cliente cliente)
+        private bool ClienteValido(Domain.Objetos.Cliente cliente)
         {
             return ExecutarValidacao(new ClienteValidation(), cliente);
         }

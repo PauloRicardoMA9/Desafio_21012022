@@ -11,6 +11,11 @@ namespace Api.Cliente.Domain.Objetos
         public bool Principal { get; private set; }
 
         public Cliente Cliente { get; set; }
+
+        public void DefinirPrincipal(bool principal)
+        {
+            Principal = principal;
+        }
     }
 
     public class TelefoneValidation: AbstractValidator<Telefone>

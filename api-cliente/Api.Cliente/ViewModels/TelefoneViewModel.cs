@@ -8,13 +8,12 @@ namespace Api.Cliente.ViewModels
         [Key]
         public Guid Id { get; set; }
 
-        public Guid IdCliente { get; set; }
-
         [Required(ErrorMessage = "O {0} é obrigatório.")]
+        public Guid? IdCliente { get; set; }
+
         [StringLength(2, ErrorMessage = "O {0} precisa ter {1} caracteres.", MinimumLength = 2)]
         public string Ddd { get; set; }
 
-        [Required(ErrorMessage = "O {0} é obrigatório.")]
         [StringLength(9, ErrorMessage = "O {0} precisa ter {1} caracteres.", MinimumLength = 9)]
         public string Numero { get; set; }
 
